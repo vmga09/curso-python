@@ -13,8 +13,9 @@
 
 <div>
 
-### 📜 Enlace a los códigos
+#### 📜 Enlace a los códigos
 
 - [Código día 01](./01_dia/dia01.py)
+- [Código día 02](./02_dia/dia02.py)
 
 </div>
