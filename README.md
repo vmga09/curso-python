@@ -19,6 +19,6 @@
 - [Código día 02](./02_dia/dia02.py)
 - [Código día 03](./03_dia/dia03.py)
 - [Código día 04](./04_dia/dia04.py)
-- [Código día 05](./04_dia/dia05.py)
-
+- [Código día 05](./05_dia/dia05.py)
+- [Código día 06](./06_dia/dia06.py)
 </div>
