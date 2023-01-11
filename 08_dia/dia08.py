@@ -43,5 +43,10 @@ print(student_keys)
 student_values = student.values()
 print(student_values)
 # Change the dictionary to a list of tuples using items() method
+
+print(student.items())
 # Delete one of the items in the dictionary
+student.pop('age')
+print(student)
 # Delete one of the dictionaries
+del student
