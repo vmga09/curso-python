@@ -225,7 +225,7 @@ def sum_even(num):
         if i % 2 == 0:
             even += i
 
-    print('The sum of all evens is {}. And the sum of all odds is {}'.format(
+    print('The sum of all evens is {}.'.format(
         str(even)))
 
 
@@ -259,7 +259,27 @@ sum_odd_even(15)
 # Call your function factorial, it takes a whole number as a parameter and it return a factorial of the number
 
 
+def fact_of_numbers(num):
+    fact = 1
+    for y in range(1, num + 1, 1):
+        fact *= y
+
+    return fact
+
+
+print(fact_of_numbers(10))
+
+
 # Call your function is_empty, it takes a parameter and it checks if it is empty or not
+
+def is_empty(arg):
+    if arg == ' ' or arg == '':
+        print('This is empty')
+    else:
+        print(arg)
+
+
+is_empty(' ')
 # Write different functions which take lists. They should calculate_mean, calculate_median, calculate_mode, calculate_range, calculate_variance, calculate_std(standard deviation).
 
 # Exercises: Level 3
