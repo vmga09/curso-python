@@ -81,18 +81,57 @@ for t in range(11):
 
 
 # 6. Iterate through the list, ['Python', 'Numpy', 'Pandas', 'Django', 'Flask'] using a for loop and print out the items.
+
+new_list = ['Python', 'Numpy', 'Pandas', 'Django', 'Flask']
+
+for n in new_list:
+    print(n)
+
+
+
+i=0
+while i < len(new_list):
+    print(new_list[i])
+    i += 1
+
 # 7. Use for loop to iterate from 0 to 100 and print only even numbers
+
+for x in range(101):
+    if x%2 == 0:
+        print(x)
 # 8. Use for loop to iterate from 0 to 100 and print only odd numbers
+
+for x in range(101):
+    if x%2 == 1:
+        print(x)
 
 # # Exercises: Level 2
 
 # 1.  Use for loop to iterate from 0 to 100 and print the sum of all numbers.
+
+sum = 0
+for x in range(101):
+    sum += x
+    print(sum)
 
 # ```sh
 # The sum of all numbers is 5050.
 # ```
 
 # 1. Use for loop to iterate from 0 to 100 and print the sum of all evens and the sum of all odds.
+
+evens = 0
+odds = 0
+
+for x in range(101):
+    if x%2 == 0:
+        evens += x
+    else:
+        odds += x
+
+print('The sum of all evens is {}. And the sum of all odds is {}.'.format(evens, odds))
+
+
 
 # ```sh
 # The sum of all evens is 2550. And the sum of all odds is 2500.
