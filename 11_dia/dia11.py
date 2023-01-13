@@ -9,7 +9,7 @@ def add_two_numbers(num1, num2):
     return print(sum)
 
 
-add_two_numbers(4, 5)
+#add_two_numbers(4, 5)
 
 # Area of a circle is calculated as follows: area = π x r x r. Write a function that calculates area_of_circle.
 
@@ -19,7 +19,7 @@ def area_of_circle(radio):
     return print('EL AREA ES: {}'.format(area))
 
 
-area_of_circle(9)
+#area_of_circle(9)
 
 
 def ver_num(args):
@@ -27,7 +27,7 @@ def ver_num(args):
         print('SI')
 
 
-ver_num(6.3)
+#ver_num(6.3)
 # Write a function called add_all_nums which takes arbitrary number of arguments and sums all the arguments. Check if all the list items are number types. If not do give a reasonable feedback.
 
 
@@ -40,7 +40,7 @@ def add_all_nums(*nums):
     return print(total)
 
 
-add_all_nums(4, 5, 6, 7, 8.9, 'k')
+#add_all_nums(4, 5, 6, 7, 8.9, 'k')
 
 # Temperature in °C can be converted to °F using this formula: °F = (°C x 9/5) + 32. Write a function which converts °C to °F, convert_celsius_to-fahrenheit.
 
@@ -53,7 +53,7 @@ def celsius_to_fahrenheit(temp):
         return print('The celcius {} to fahrenheit {}'.format(temp, temp_f))
 
 
-celsius_to_fahrenheit(78.9)
+#celsius_to_fahrenheit(78.9)
 # Write a function called check-season, it takes a month parameter and returns the season: Autumn, Winter, Spring or Summer.
 
 
@@ -75,7 +75,7 @@ def season(month):
         return print('Dato ingresado no válido')
 
 
-season(input('Enter month: '))
+#season(input('Enter month: '))
 
 # Write a function called calculate_slope which return the slope of a linear equation
 
@@ -99,7 +99,7 @@ def solve_quadratic_eqn(a, b, c):
             return print(' La ecuación pasa por los puntos: {} y {}'.format(str(x1), str(x2)))
 
 
-solve_quadratic_eqn(1, 6, 8)
+#solve_quadratic_eqn(1, 6, 8)
 
 # Declare a function named print_list. It takes a list as a parameter and it prints out each element of the list.
 
@@ -109,7 +109,7 @@ def print_list(list):
         print(item)
 
 
-print_list([3, 4, 56, 6, 7])
+#print_list([3, 4, 56, 6, 7])
 # Declare a function named reverse_list. It takes an array as a parameter and it returns the reverse of the array(use loops).
 
 
@@ -126,7 +126,7 @@ def reverse_list(list):
     return print(new_arr)
 
 
-reverse_list(["A", "B", "C"])
+#reverse_list(["A", "B", "C"])
 
 # Declare a function named capitalize_list_items. It takes a list as a parameter and it returns a capitalized list of items
 
@@ -139,7 +139,7 @@ def capitalize_list_items(array):
     print(new_arr)
 
 
-capitalize_list_items(['qwqw', 'erwer', 4])
+#capitalize_list_items(['qwqw', 'erwer', 4])
 # Declare a function named add_item. It takes a list and an item parameters. It returns a list with the item added at the end.
 
 food_staff = ['Potato', 'Tomato', 'Mango', 'Milk']
@@ -150,7 +150,7 @@ def add_item(list, item):
     return list
 
 
-print(add_item(food_staff, 'Yogurt'))
+#print(add_item(food_staff, 'Yogurt'))
 
 # food_staff = ['Potato', 'Tomato', 'Mango', 'Milk']
 # # ['Potato', 'Tomato', 'Mango', 'Milk','Meat'];
@@ -178,7 +178,7 @@ def remove_item(list, item):
         return list
 
 
-print(remove_item(numbers, 4))
+#print(remove_item(numbers, 4))
 
 
 # Declare a function named sum_of_numbers. It takes a number parameter and it adds all the numbers in that range.
@@ -196,7 +196,7 @@ def sum_of_numbers(num):
     return sum
 
 
-print(sum_of_numbers(100))
+#print(sum_of_numbers(100))
 
 # Declare a function named sum_of_odds. It takes a number parameter and it adds all the odd numbers in that range.
 
@@ -212,7 +212,7 @@ def sum_odd(num):
         str(odd)))
 
 
-sum_odd(15)
+#sum_odd(15)
 
 
 # Declare a function named sum_of_even. It takes a number parameter and it adds all the even numbers in that - range.
@@ -229,7 +229,7 @@ def sum_even(num):
         str(even)))
 
 
-sum_even(15)
+#sum_even(15)
 
 
 # Exercises: Level 2
@@ -254,7 +254,7 @@ def sum_odd_even(num):
         str(even), str(odd)))
 
 
-sum_odd_even(15)
+#sum_odd_even(15)
 
 # Call your function factorial, it takes a whole number as a parameter and it return a factorial of the number
 
@@ -267,7 +267,7 @@ def fact_of_numbers(num):
     return fact
 
 
-print(fact_of_numbers(10))
+#print(fact_of_numbers(10))
 
 
 # Call your function is_empty, it takes a parameter and it checks if it is empty or not
@@ -279,8 +279,75 @@ def is_empty(arg):
         print(arg)
 
 
-is_empty(' ')
+#is_empty(' ')
 # Write different functions which take lists. They should calculate_mean, calculate_median, calculate_mode, calculate_range, calculate_variance, calculate_std(standard deviation).
+
+arreglo = [1,2,3,4,5,6,7,8,9,10]
+def calculate_mean(arr):
+    sum = 0
+    for m in arr:
+        sum += m
+    avg = sum / len(arr)
+    return avg
+
+print(calculate_mean(arreglo))
+
+def calculate_median(arr):
+    sorted_data = sorted(arr)
+    data_len = len(sorted_data)
+    middle = (data_len -1) // 2
+    if middle %2:
+        return sorted_data[middle]
+    else:
+        return (sorted_data[middle] + sorted_data[middle+1]) / 2
+
+print(calculate_median(arreglo))
+
+
+def calculate_mode(arr):
+    y = {}
+    for a in arr:
+        if not a in y:
+            y[a] = 1
+        else:
+            y[a] += 1
+    return [ g for g , l in y.items() if l ==max(y.values()) ]
+
+
+print(calculate_mode([34,23,56,43,56,2,378,54,23,34,12,21,23,45,55]))
+
+
+def calculate_range(arr):
+    sort_arr = sorted(arr)
+    range = sort_arr[len(sort_arr)-1] - sort_arr[0]
+    return range
+
+print(calculate_range([34,23,56,43,56,2,378,54,23,34,12,21,23,45,55]))
+
+
+def calculate_variance(arr):
+    avg = calculate_mean(arr)
+    sum = 0
+    for i in arr:
+        acum = (i - avg)**2
+        sum += acum
+    variance = sum/len(arr)
+    return variance
+
+
+def calculate_stdev(arr):
+    s = calculate_variance(arr)
+    std = s **0.5
+    return std
+
+
+
+print(calculate_variance([4,8,6,5,3,2,8,9,2,5]))
+print(calculate_stdev([4,8,6,5,3,2,8,9,2,5]))
+
+
+
+
 
 # Exercises: Level 3
 
