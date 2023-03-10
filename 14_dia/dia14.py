@@ -114,6 +114,19 @@ keys = []
 keys = [i[0] for i in paisesm.countries if i[0] not in keys]
 keys_uniq = list(set(keys))
 
+def create_dict(k1,k2):
+    new_dict = {}
+    for x in k1:
+        count = 0
+        for y in k2:
+            if x == y:
+                count += 1
+                new_dict[x] = count
+    return new_dict
+
+dic_start = create_dict(keys_uniq,keys)
+print(dic_start)
+
 print(keys)
 print(keys_uniq)
 # Declare a get_first_ten_countries function - it returns a list of first ten countries from the countries.js list in the data folder.
