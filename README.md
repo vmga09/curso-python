@@ -29,4 +29,5 @@
 - [Código día 12](./12_dia/dia12.py)
 - [Código día 13](./13_dia/dia13.py)
 - [Código día 14](./14_dia/dia14.py)
+- [Código día 16](./16_dia/dia16.py)
 </div>
