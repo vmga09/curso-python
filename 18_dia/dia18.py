@@ -119,12 +119,14 @@ most_frequent(paragraph)
 # is_valid_variable('firstname')  # True
 
 def is_valid_variable(variable):
-    regex_pattern = r'[^\d].[^-]*_?'
+    regex_pattern = r'^[a-zA-Z]\w*$'
     matches = re.match(regex_pattern, variable)
     print(matches)
 
 
 is_valid_variable('hola-como')
+is_valid_variable('hola_como')
+is_valid_variable('1hola_como')
 
 # Exercises: Level 3
 
