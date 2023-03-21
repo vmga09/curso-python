@@ -2,60 +2,61 @@
 
 import json
 import os
-f = open(
-    'C:\\Users\\13181784\\Documents\\Desarrollo Activos\\curso-python\\19_dia\\grado.txt')
+
+pathfile = "C:\\Users\\vmgon\\OneDrive\\Documentos\\curso_python\\19_dia\\"
+f = open(pathfile+"grado.txt")
 txt = f.read()
 print(type(txt))
 print(txt)
 f.close()
 # readline(): read only the first line
 
-f = open('C:\\Users\\13181784\\Documents\\Desarrollo Activos\\curso-python\\19_dia\\grado.txt')
+f = open(pathfile+"grado.txt")
 line = f.readline()
 print(type(line))
 print(line)
 f.close()
 
 # readlines(): read all the text line by line and returns a list of lines
-f = open('C:\\Users\\13181784\\Documents\\Desarrollo Activos\\curso-python\\19_dia\\grado.txt')
+f = open(pathfile+"grado.txt")
 lines = f.readlines()
 print(type(lines))  # Return list of lines
 print(lines)
 f.close()
 
 # Another way to get all the lines as a list is using splitlines():
-f = open('C:\\Users\\13181784\\Documents\\Desarrollo Activos\\curso-python\\19_dia\\grado.txt')
+f = open(pathfile+"grado.txt")
 lines = f.read().splitlines()
 print(type(lines))
 print(lines)
 f.close()
 
 # Open file with close
-with open('C:\\Users\\13181784\\Documents\\Desarrollo Activos\\curso-python\\19_dia\\grado.txt') as f:
+with  open(pathfile+"grado.txt") as f:
     lines = f.read().splitlines()
     print(type(lines))
     print(lines)
 
 # Opening Files write updating
-with open('C:\\Users\\13181784\\Documents\\Desarrollo Activos\\curso-python\\19_dia\\grado.txt', 'a') as f:
+with open(pathfile+"grado.txt",'a') as f:
     f.write('This text has to be appended at the end\n')
 
 # The method below creates a new file, if the file does not exist:
-with open('C:\\Users\\13181784\\Documents\\Desarrollo Activos\\curso-python\\19_dia\\new_grado.txt', 'w') as f:
+with open(pathfile+'new_grado.txt', 'w') as f:
     f.write('This text will be written in a newly created file')
 
 # Deleting file
 try:
 
     os.remove(
-        'C:\\Users\\13181784\\Documents\\Desarrollo Activos\\curso-python\\19_dia\\new2_grado.txt')
+        pathfile+'new2_grado.txt')
 except Exception as e:
     print(e)
 
 
-if os.path.exists('C:\\Users\\13181784\\Documents\\Desarrollo Activos\\curso-python\\19_dia\\new_grado.txt'):
+if os.path.exists(pathfile+'new_grado.txt'):
     os.remove(
-        'C:\\Users\\13181784\\Documents\\Desarrollo Activos\\curso-python\\19_dia\\new_grado.txt')
+        pathfile+'new_grado.txt')
     print('File Removed')
 else:
     print('The file does not exist')
@@ -63,7 +64,7 @@ else:
 
 # Json file
 
-with open('C:\\Users\\13181784\\Documents\\Desarrollo Activos\\curso-python\\19_dia\\jason_example.json') as js:
+with open(pathfile+'jason_example.json') as js:
     person_json = js.read()
     person_dct = json.loads(person_json)
     print(type(person_dct))
@@ -77,7 +78,7 @@ personal = {
     "skills": ["JavaScrip", "Angular", "Python"]
 }
 
-with open(f'C:\\Users\\13181784\\Documents\\Desarrollo Activos\\curso-python\\19_dia\\{personal["name"]}.json', 'w', encoding='utf-8') as f:
+with open(f'{pathfile}{personal["name"]}.json', 'w', encoding='utf-8') as f:
     json.dump(personal, f, ensure_ascii=False, indent=4)
 
 
@@ -88,7 +89,7 @@ with open(f'C:\\Users\\13181784\\Documents\\Desarrollo Activos\\curso-python\\19
 
 
 def read_texto(file):
-    with open(f'C:\\Users\\13181784\\Documents\\Desarrollo Activos\\curso-python\\19_dia\\{file}.txt') as fl:
+    with open(f'{pathfile}{file}.txt') as fl:
         texto = fl.read()
         lines = texto.splitlines()
         words = texto.split(" ")
@@ -111,7 +112,7 @@ count_wl(speech)
 #     Read the countries_data.json data file in data directory, create a function that finds the ten most spoken languages
 
 def read_json_file():
-    with open('C:\\Users\\13181784\\Documents\\Desarrollo Activos\\curso-python\\19_dia\\countries_data.json', encoding="utf8") as cj:
+    with open(pathfile+'countries_data.json', encoding="utf8") as cj:
         countries_data = cj.read()  # formato str
         # tranforma en una lista con json
         countries_json = json.loads(countries_data)
@@ -135,6 +136,38 @@ read_json_file()
 #      (4, 'Swahili'),
 #      (4, 'Serbian')]
 
+
+def most_spoken_languages(filename,num):
+    lan = []
+    result = []
+    new_result = []
+    newdic = {}
+    with open(filename, encoding='utf-8') as f:
+        countries_data = f.read()  # formato str
+        # tranforma en una lista con json
+        countries_json = json.loads(countries_data)
+        for countries in countries_json:
+            lan = lan + countries['languages']
+        
+        setlan = set(lan)
+        for lengua in setlan:
+            newdic[lengua] = 0
+            for lanlengua in lan:
+                if lengua == lanlengua:
+                    newdic[lengua] += 1
+        sorted_lenguas = dict(sorted(newdic.items(), key=lambda item: item[1], reverse=True))
+        for item in sorted_lenguas:
+            result.append((sorted_lenguas[item],item))
+           
+        for i in range(num):
+            new_result.append(result[i])
+        
+        print(new_result)
+            
+
+
+most_spoken_languages(pathfile+'countries_data.json',10)
+
 #     # Your output should look like this
 #     print(most_spoken_languages(filename='./data/countries_data.json', 3))
 #     [(91, 'English'),
@@ -142,6 +175,35 @@ read_json_file()
 #      (25, 'Arabic')]
 
 #     Read the countries_data.json data file in data directory, create a function that creates a list of the ten most populated countries
+
+
+def most_populated_countries(filename,num):
+    with open(filename, encoding='utf-8') as f:
+        new_country = {}
+        out_country = []
+        sorted_countries = []
+        countries_data = f.read()  # formato str
+        # tranforma en una lista con json
+        countries_json = json.loads(countries_data)
+        for countrie in countries_json:
+            new_country['country'] = countrie['name']
+            new_country['population'] = countrie['population']
+            out_country.append(new_country)
+            new_country = {}
+        
+        #print(out_country)
+        sorcountries = sorted(out_country, key=lambda d: d['population'],reverse=True)
+
+        if len(sorcountries)>=num:
+            print(sorcountries[0:num])
+        else:
+            print(f'El valor de la num es mayor al largo de la lista')
+
+
+
+
+most_populated_countries(pathfile+'countries_data.json',3)
+
 
 #     # Your output should look like this
 #     print(most_populated_countries(filename='./data/countries_data.json', 10))
@@ -159,6 +221,10 @@ read_json_file()
 #      {'country': 'Japan', 'population': 126960000}
 #      ]
 
+
+
+
+
 #     # Your output should look like this
 
 #     print(most_populated_countries(filename='./data/countries_data.json', 3))
@@ -172,6 +238,28 @@ read_json_file()
 
 #     Extract all incoming email addresses as a list from the email_exchange_big.txt file.
 #     Find the most common words in the English language. Call the name of your function find_most_common_words, it will take two parameters - a string or a file and a positive integer, indicating the number of words. Your function will return an array of tuples in descending order. Check the output
+
+def find_most_common_words(filename,num):
+       new_dic = {}
+       with open(f'{pathfile}{filename}') as fl:
+        texto = fl.read()
+        lines = texto.splitlines()
+        words = texto.split(" ")
+        uwords = set(words)
+        for word in uwords:
+            new_dic[word] = 0
+            for text in words:
+                if word == text:
+                    new_dic[word] +=1
+
+        print(new_dic)
+
+     
+
+
+#find_most_common_words('email_exchanges_big.txt',5)         
+
+
 
 #     # Your output should look like this
 #     print(find_most_common_words('sample.txt', 10))
