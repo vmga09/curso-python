@@ -30,5 +30,8 @@
 - [Código día 13](./13_dia/dia13.py)
 - [Código día 14](./14_dia/dia14.py)
 - [Código día 16](./16_dia/dia16.py)
-- [Código día 16](./17_dia/dia17.py)
+- [Código día 17](./17_dia/dia17.py)
+- [Código día 18](./18_dia/dia18.py)
+- [Código día 19](./19_dia/dia19.py)
+- [Código día 20](./20_dia/dia20.py)
 </div>
