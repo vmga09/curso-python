@@ -1,21 +1,28 @@
 import requests
 import json
+import re
 from bs4 import BeautifulSoup
 
-# url = 'https://archive.ics.uci.edu/ml/datasets.php'
+url = 'https://archive.ics.uci.edu/ml/datasets.php'
 
-# response = requests.get(url)
+response = requests.get(url)
 
-# content = response.content
-# soup = BeautifulSoup(content, 'html.parser')
+content = response.content
+soup = BeautifulSoup(content, 'html.parser')
 # print(soup.title)
 # print(soup.title.get_text())
-# # print(soup.body)
-# tables = soup.find_all('table', {'cellpadding': '3'})
-# table = tables[0]
-# print(table)
+# print(soup.body)
+tables = soup.find_all('table', {'cellpadding': '3'})
+table = tables[0]
 # for td in table.find('tr').find_all('td'):
 #     print(td.text)
+
+
+for td in table.find('tr'):
+    print(td)
+    # rows.append(td.t)
+    # print(td.text)
+# print(rows)
 
 # Scrape the following website and store the data as json file(url = 'http://www.bu.edu/president/boston-university-facts-stats/').
 """
@@ -37,17 +44,23 @@ with open("bu.edu.json", "w") as f:
 # Extract the table in this url (https://archive.ics.uci.edu/ml/datasets.php) and change it to a json file
 
 
-def web_scrap(url):
-    response = requests.get(url)
-    content = response.content
-    soup = BeautifulSoup(content, 'html.parser')
-    tables = soup.find_all('table', {'cellpadding': '5', 'border': '1'})
-    table = tables[0]
-    head_keys = []
-    for td in table.find_all('tr'):
-        head_keys.append(td)
+# def web_scrap(url):
+#     response = requests.get(url)
+#     content = response.content
+#     soup = BeautifulSoup(content, 'html.parser')
+#     tables = soup.find('table', {'cellpadding': '5'})
+#     rows = []
+#     pattern = r'[\xa0\n\r]'
+#     for tr in tables.find_all('tr'):
+#         # print(tr)
+#         if len(tr) > 5:
+#             for p in tr:
+#                 new_p = re.sub(pattern, '', p.text)
+#                 # print(new_p)
+#                 if len(new_p) > 1:
+#                     rows.append(new_p)
+#             print(rows)
+#             rows = []
 
-    print(head_keys)
 
-
-web_scrap('https://archive.ics.uci.edu/ml/datasets.php')
+# web_scrap('https://archive.ics.uci.edu/ml/datasets.php')
